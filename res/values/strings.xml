@@ -227,4 +227,6 @@
     <string name="navigation_bar_height_tablets_landscape_title">Height (landscape)</string>
     <string name="navigation_bar_width_title">Width</string>
 
+    <string name="qs_running_services_title">Running Services Icon</string>
+    <string name="qs_running_services_summary">Enable the running services icon in the footer</string>
 </resources>
