@@ -19,6 +19,13 @@
             android:title="@string/navigation_options_title" >
  
     <Preference
+        android:key="gesture_settings"
+        android:title="@string/aosp_gesture_preference"
+        android:summary="@string/aosp_gesture_summary"
+        android:fragment="com.android.settings.gestures.GestureSettings"
+        settings:controller="com.android.settings.gestures.GesturesSettingPreferenceController"/>
+
+    <Preference
             android:key="layout_settings"
             android:title="@string/systemui_tuner_navbar_title"
             android:summary="@string/systemui_tuner_navbar_enabled_summary">
