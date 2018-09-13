@@ -25,11 +25,27 @@
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
 
-   <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
-        android:key="toast_icon"
-        android:title="@string/toast_icon_title"
-        android:summary="@string/toast_icon_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:title="@string/toast_category" >
+
+        <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+            android:key="toast_icon"
+            android:title="@string/toast_icon_title"
+            android:summary="@string/toast_icon_summary"
+            android:defaultValue="false" />
+
+        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
+            android:key="toast_icon_color"
+            android:title="@string/toast_icon_color"
+            android:defaultValue="0xffffffff"
+            android:dependency="toast_icon" />
+
+        <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
+            android:key="toast_text_color"
+            android:title="@string/toast_text_color"
+            android:defaultValue="0xeeff0000" />
+
+    </PreferenceCategory>
 
    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
          android:key="show_fourg_icon"
