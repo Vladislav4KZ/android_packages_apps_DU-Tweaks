@@ -21,6 +21,7 @@ import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragment;
@@ -43,7 +44,10 @@ public class PowerMenu extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String KEY_POWERMENU_TORCH = "powermenu_torch";
+    private static final String KEY_TORCH_LONG_PRESS_POWER_TIMEOUT =
+            "torch_long_press_power_timeout";
 
+    private ListPreference mTorchLongPressPowerTimeout;
     private SwitchPreference mPowermenuTorch;
 
     @Override
@@ -52,6 +56,14 @@ public class PowerMenu extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.powermenu);
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mTorchLongPressPowerTimeout =
+                    (ListPreference) findPreference(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
+        mTorchLongPressPowerTimeout.setOnPreferenceChangeListener(this);
+        int TorchTimeout = Settings.System.getInt(getContentResolver(),
+                        Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0);
+        mTorchLongPressPowerTimeout.setValue(Integer.toString(TorchTimeout));
+        mTorchLongPressPowerTimeout.setSummary(mTorchLongPressPowerTimeout.getEntry());
 
         mPowermenuTorch = (SwitchPreference) findPreference(KEY_POWERMENU_TORCH);
         mPowermenuTorch.setOnPreferenceChangeListener(this);
@@ -65,10 +77,21 @@ public class PowerMenu extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+
         if (preference == mPowermenuTorch) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.POWERMENU_TORCH, value ? 1 : 0);
+            return true;
+      	} else if (preference == mTorchLongPressPowerTimeout) {
+            String TorchTimeout = (String) newValue;
+            int TorchTimeoutValue = Integer.parseInt(TorchTimeout);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, TorchTimeoutValue);
+            int TorchTimeoutIndex = mTorchLongPressPowerTimeout
+                    .findIndexOfValue(TorchTimeout);
+            mTorchLongPressPowerTimeout
+                    .setSummary(mTorchLongPressPowerTimeout.getEntries()[TorchTimeoutIndex]);
             return true;
         }
         return false;
