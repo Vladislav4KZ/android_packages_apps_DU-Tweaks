@@ -211,4 +211,8 @@
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
     <string name="screenshot_options_category">Screenshot options</string>
     <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
+
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Swipe to screenshot</string>
+    <string name="three_finger_gesture_summary">Swipe three fingers to take screenshot</string>
 </resources>
