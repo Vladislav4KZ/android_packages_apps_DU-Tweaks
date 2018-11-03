@@ -27,7 +27,7 @@
     <string name="bottom_nav_system_title">System</string>
     <string name="bottom_nav_lockscreen_title">Lockscreen</string>
     <string name="bottom_nav_statusbar_title">Statusbar</string>
-    <string name="bottom_nav_navigation_title">Navigation</string>
+    <string name="bottom_nav_navigation_title">Hardware</string>
     <string name="bottom_nav_multitasking_title">Multitasking</string>
 
     <!-- Categories -->
@@ -61,11 +61,13 @@
     <string name="ticker_summary">Enable the statusbar ticker and configure ticker related tweaks</string>
     <string name="traffic_title">Traffic indicators</string>
     <string name="traffic_summary">Enable and configure the traffic indicators</string>
+
     <!-- Navigation -->
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">Configure volume rocker options</string>
     <string name="navigation_options_title">Navigation</string>
     <string name="navigation_options_summary">Configure navigation options</string>
+
     <!-- Multitasking -->
     <string name="active_edge_title">Active Edge</string>
     <string name="active_edge_summary">Configure Active Edge options</string>
@@ -85,4 +87,11 @@
     <string name="qs_columns_landscape_title">Columns (landscape)</string>
     <string name="qs_tile_title_visibility_title">Tiles title</string>
     <string name="qs_tile_title_visibility_summary">Show the titles underneath QS tiles</string>
+
+    <!-- Power Menu -->
+    <string name="powermenu_reboot_title">Restart</string>
+    <string name="powermenu_advanced_restart_title">Advanced restart</string>
+    <string name="powermenu_advanced_restart_summary">Enables the advanced restart menu for other restarting options</string>
+    <string name="powermenu_lockdown_title">Lockdown</string>
+    <string name="powermenu_screenshot_title">Screenshot</string>
 </resources>
