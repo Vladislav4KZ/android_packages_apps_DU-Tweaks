@@ -44,6 +44,7 @@
     <string name="fingerprint_prefs_summary">Tweaks specific to the fingerprint scanner</string>
     <string name="lockscreen_items_title">Lockscreen items</string>
     <string name="lockscreen_items_summary">Customize the lockscreen</string>
+
     <!-- Statusbar -->
     <string name="battery_options_title">Battery options</string>
     <string name="battery_options_summary">Customize the statusbar battery</string>
@@ -61,11 +62,13 @@
     <string name="ticker_summary">Enable the statusbar ticker and configure ticker related tweaks</string>
     <string name="traffic_title">Traffic indicators</string>
     <string name="traffic_summary">Enable and configure the traffic indicators</string>
+
     <!-- Navigation -->
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">Configure volume rocker options</string>
     <string name="navigation_options_title">Navigation</string>
     <string name="navigation_options_summary">Configure navigation options</string>
+
     <!-- Multitasking -->
     <string name="active_edge_title">Active Edge</string>
     <string name="active_edge_summary">Configure Active Edge options</string>
@@ -162,4 +165,9 @@
     <!-- Volume Button Music Control -->
     <string name="volume_rocker_music_controls_title">Music control</string>
     <string name="volume_rocker_music_controls_summary">Long press volume buttons to switch tracks while screen off</string>
+
+    <!-- Volume Wake -->
+    <string name="volume_stuff_title">Volume Button</string>
+    <string name="volume_rocker_wake_title">Volume rocker wake</string>
+    <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
 </resources>
