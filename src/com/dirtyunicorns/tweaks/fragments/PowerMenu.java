@@ -44,9 +44,11 @@ public class PowerMenu extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String KEY_LOCKDOWN_IN_POWER_MENU = "lockdown_in_power_menu";
+
     private static final int MY_USER_ID = UserHandle.myUserId();
 
     private SwitchPreference mPowerMenuLockDown;
+    private PreferenceCategory mAdvancedCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,12 +59,15 @@ public class PowerMenu extends SettingsPreferenceFragment
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
 
         mPowerMenuLockDown = (SwitchPreference) findPreference(KEY_LOCKDOWN_IN_POWER_MENU);
+        mAdvancedCategory = (PreferenceCategory) findPreference("powermenu_advanced_category");
+
         if (lockPatternUtils.isSecure(MY_USER_ID)) {
             mPowerMenuLockDown.setChecked((Settings.Secure.getInt(getContentResolver(),
                     Settings.Secure.LOCKDOWN_IN_POWER_MENU, 0) == 1));
             mPowerMenuLockDown.setOnPreferenceChangeListener(this);
         } else {
             prefSet.removePreference(mPowerMenuLockDown);
+            prefSet.removePreference(mAdvancedCategory);
         }
     }
 
