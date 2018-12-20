@@ -365,4 +365,8 @@
     <string name="toast_category">Toast Menu</string>
     <string name="toast_text_color">Toast text color</string>
     <string name="toast_icon_color">Toast icon color</string>
+
+    <!-- Volume Panel on Left -->
+    <string name="volume_panel_on_left_title">Volume Panel on Left</string>
+    <string name="volume_panel_on_left_summary">Change volume panel from right side to left side</string>
 </resources>
