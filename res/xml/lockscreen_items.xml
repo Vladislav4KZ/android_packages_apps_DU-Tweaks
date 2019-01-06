@@ -124,6 +124,12 @@
 	android:defaultValue="true" />
 
    <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_qs_disabled"
+        android:title="@string/lockscreen_qs_disabled_title"
+        android:summary="@string/lockscreen_qs_disabled_summary"
+        android:defaultValue="false" />
+
+   <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
         android:key="weather_lockscreen_enabled"
         android:title="@string/lock_screen_weather_title"
         android:dependency="lockscreen_info"
