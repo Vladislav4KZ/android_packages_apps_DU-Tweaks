@@ -152,7 +152,7 @@ public class Interfaces extends SettingsPreferenceFragment
 
         mSystemThemeStyle = (ListPreference) findPreference(SYSTEM_THEME_STYLE);
         int systemThemeStyle = Settings.System.getInt(resolver,
-                Settings.System.SYSTEM_UI_THEME, 0);
+                Settings.System.SYSTEM_THEME_STYLE, 0);
         int themeValueIndex = mSystemThemeStyle.findIndexOfValue(String.valueOf(systemThemeStyle));
         mSystemThemeStyle.setValueIndex(themeValueIndex >= 0 ? themeValueIndex : 0);
         mSystemThemeStyle.setSummary(mSystemThemeStyle.getEntry());

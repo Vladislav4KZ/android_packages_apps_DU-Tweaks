@@ -103,6 +103,9 @@
     <string name="sub_cat_advanced">Advanced</string>
     <string name="volume_stuff_title">Volume Button</string>
 
+    <!-- QS Category -->
+    <string name="qs_theme_category">QS Themes</string>
+
     <!-- Lockscreen Media art -->
     <string name="media_art_title">Full-screen media cover art</string>
     <string name="media_art_summary">Set full-screen media cover art on the lockscreen</string>
@@ -123,7 +126,6 @@
     <string name="recents_icon_pack_summary">Apply a custom icon pack for Recents panel</string>
 
     <!-- Themes -->
-    <string name="accent_themes_category">Accent options</string>
     <string name="accent_picker_dialog_title">Select an accent color</string>
     <string name="theme_accent_picker_title">Accent color</string>
     <string name="theme_accent_picker_summary">Select system theme accent color</string>
@@ -557,6 +559,7 @@
     <string name="weather_unit_imperial" translatable="false">Fahrenheit</string>
 
     <!-- Rounded corners -->
+    <string name="corner_category">Rounded Corner</string>
     <string name="corner_radius">Rounded corner radius</string>
     <string name="content_padding">Corner content padding</string>
     <string name="corner_fwvals">Use framework values</string>
@@ -664,6 +667,8 @@
     <!-- Three-fingers-swipe to screenshot -->
     <string name="three_finger_gesture">Swipe to screenshot</string>
     <string name="three_finger_gesture_summary">Swipe three fingers to take screenshot</string>
+
+    <string name="qs_theme_category">QS Themes</string>
 
     <!-- QS edit icon -->
     <string name="qs_edit_title">QS edit icon</string>
@@ -826,10 +831,8 @@
     <string name="switch_contained">Contained</string>
     <string name="switch_retro">Retro</string>
 
-    <!-- QS Category -->
-    <string name="qs_category">QS Tweaks</string>
-
     <!-- Settings dashboard icon style -->
+    <string name="dashboard_category">Dashboard Settings</string>
     <string name="theming_settings_dashboard_icons_title">Settings dashboard icons</string>
     <string name="theming_settings_dashboard_icons_default">Round</string>
     <string name="theming_settings_dashboard_icons_default_accent">Round (Accent)</string>
@@ -873,6 +876,7 @@
     <string name="display_cutout_force_fullscreen_summary">Force apps to ignore notch space</string>
 
     <!-- Themes -->
+    <string name="themes_category">Themes Options</string>
     <string name="system_theme_style_title">UI style</string>
     <string name="system_theme_style_auto">Wallpaper based</string>
     <string name="system_theme_style_light">Light UI</string>
@@ -890,7 +894,7 @@
     <string name="theme_picker_dialog_title">Select a theme color</string>
 
     <!-- QS themes -->
-    <string name="qs_panel_alpha_title">Opacity</string>
+    <string name="qs_panel_alpha_title">QS Panel opacity</string>
     <string name="qs_panel_color_title">Color</string>
     <string name="qs_bg_wall_title">Use Wallpaper colors</string>
     <string name="qs_bg_wall_summary">Set QS background color from Wallpaper</string>
