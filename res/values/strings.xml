@@ -669,8 +669,6 @@
     <string name="three_finger_gesture">Swipe to screenshot</string>
     <string name="three_finger_gesture_summary">Swipe three fingers to take screenshot</string>
 
-    <string name="qs_theme_category">QS Themes</string>
-
     <!-- QS edit icon -->
     <string name="qs_edit_title">QS edit icon</string>
     <string name="qs_edit_summary">Display the tile edit icon in quick settings footer</string>
