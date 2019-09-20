@@ -82,7 +82,6 @@
 
     <!-- Tuner -->
     <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
-    <string name="navbar_tuner_title">Navbar Tuner</string>
     <string name="statusbar_items_title">Statusbar items</string>
 
     <!-- Statusbar net monitor -->
@@ -351,4 +350,6 @@
     <string name="fprint_error_vib_title">Fingerprint error vibration</string>
     <string name="fprint_error_vib_summary">Vibrate on error fingerprint authentication</string>
 
+    <!-- Navbar Invert -->
+    <string name="navbar_invert_layout_title">Invert layout</string>
 </resources>
