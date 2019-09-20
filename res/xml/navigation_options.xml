@@ -27,6 +27,11 @@
                 android:targetClass="com.android.systemui.tuner.NavBarActivity" />
     </Preference>
 
+        <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
+            android:key="sysui_nav_bar_inverse"
+            android:title="@string/navbar_invert_layout_title"
+            android:defaultValue="false" />
+
         <com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference
             android:key="swap_navigation_keys"
             android:title="@string/swap_navigation_keys_title"
