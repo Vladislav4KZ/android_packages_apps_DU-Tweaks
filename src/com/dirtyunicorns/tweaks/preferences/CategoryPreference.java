@@ -77,4 +77,5 @@ public class CategoryPreference extends Preference {
         holder.setDividerAllowedBelow(mAllowDividerBelow);
 
         ImageView imageview = (ImageView) holder.findViewById(android.R.id.icon);
+    }
 }
