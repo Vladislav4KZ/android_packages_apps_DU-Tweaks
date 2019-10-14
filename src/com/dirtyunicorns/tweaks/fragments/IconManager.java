@@ -18,14 +18,15 @@ package com.dirtyunicorns.tweaks.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v14.preference.SwitchPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -41,47 +42,14 @@ import java.util.List;
 public class IconManager extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
-    private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
-
-    private SwitchPreference mShowLteFourGee;
-    private SwitchPreference mShowDuLogo;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.icon_manager);
-
-        PreferenceScreen prefSet = getPreferenceScreen();
-
-        mShowLteFourGee = (SwitchPreference) findPreference(SHOW_LTE_FOURGEE);
-        if (com.android.internal.util.du.Utils.isWifiOnly(getActivity())) {
-            prefSet.removePreference(mShowLteFourGee);
-        } else {
-            mShowLteFourGee.setChecked((Settings.System.getInt(getContentResolver(),
-                    Settings.System.SHOW_LTE_FOURGEE, 0) == 1));
-            mShowLteFourGee.setOnPreferenceChangeListener(this);
-        }
-
-        mShowDuLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
-        mShowDuLogo.setChecked((Settings.System.getInt(getContentResolver(),
-             Settings.System.STATUS_BAR_LOGO, 0) == 1));
-        mShowDuLogo.setOnPreferenceChangeListener(this);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mShowLteFourGee) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.SHOW_LTE_FOURGEE, value ? 1 : 0);
-            return true;
-        } else if  (preference == mShowDuLogo) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
-            return true;
-        }
-
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
     }
 

@@ -24,7 +24,6 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-import com.dirtyunicorns.support.preferences.IconPackPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,14 +34,6 @@ public class Recents extends SettingsPreferenceFragment implements Indexable {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.recents);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        IconPackPreference iconPackPref = (IconPackPreference) findPreference("recents_icon_pack");
-        // Re-initialise preference
-        iconPackPref.init();
     }
 
     @Override

@@ -18,18 +18,17 @@ package com.dirtyunicorns.tweaks.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v14.preference.SwitchPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.internal.widget.LockPatternUtils;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -43,41 +42,14 @@ import java.util.List;
 public class PowerMenu extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String KEY_LOCKDOWN_IN_POWER_MENU = "lockdown_in_power_menu";
-
-    private static final int MY_USER_ID = UserHandle.myUserId();
-
-    private SwitchPreference mPowerMenuLockDown;
-    private PreferenceCategory mAdvancedCategory;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.powermenu);
-
-        final PreferenceScreen prefSet = getPreferenceScreen();
-        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
-
-        mPowerMenuLockDown = (SwitchPreference) findPreference(KEY_LOCKDOWN_IN_POWER_MENU);
-        mAdvancedCategory = (PreferenceCategory) findPreference("powermenu_advanced_category");
-
-        if (lockPatternUtils.isSecure(MY_USER_ID)) {
-            mPowerMenuLockDown.setChecked((Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.LOCKDOWN_IN_POWER_MENU, 0) == 1));
-            mPowerMenuLockDown.setOnPreferenceChangeListener(this);
-        } else {
-            prefSet.removePreference(mPowerMenuLockDown);
-            prefSet.removePreference(mAdvancedCategory);
-        }
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mPowerMenuLockDown) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.LOCKDOWN_IN_POWER_MENU, value ? 1 : 0);
-            return true;
-        }
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
     }
 

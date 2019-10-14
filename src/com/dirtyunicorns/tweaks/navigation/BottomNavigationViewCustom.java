@@ -19,17 +19,17 @@ package com.dirtyunicorns.tweaks.navigation;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Build;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.R;
-import android.support.design.internal.BottomNavigationMenu;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.view.SupportMenuInflater;
-import android.support.v7.view.menu.MenuBuilder;
-import android.support.v7.widget.TintTypedArray;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.R;
+import com.google.android.material.bottomnavigation.BottomNavigationMenu;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.view.SupportMenuInflater;
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -323,7 +323,7 @@ public class BottomNavigationViewCustom extends FrameLayout {
         ColorStateList baseColor = AppCompatResources.getColorStateList(
                 getContext(), value.resourceId);
         if (!getContext().getTheme().resolveAttribute(
-                android.support.v7.appcompat.R.attr.colorPrimary, value, true)) {
+                androidx.appcompat.R.attr.colorPrimary, value, true)) {
             return null;
         }
         int colorPrimary = value.data;

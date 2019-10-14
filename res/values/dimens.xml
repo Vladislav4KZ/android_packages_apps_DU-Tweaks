@@ -16,9 +16,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- QS styles opacity -->
-    <dimen name="qs_styles_layout_opacity" format="float">0.50</dimen>
-
     <!-- Notification light -->
     <dimen name="alert_dialog_padding_material">20dp</dimen>
     <dimen name="oval_notification_size">26dp</dimen>

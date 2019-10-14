@@ -17,11 +17,11 @@
 package com.dirtyunicorns.tweaks.tabs;
 
 import android.os.Bundle;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.PreferenceFragment;
-import android.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -30,7 +30,6 @@ import com.android.internal.logging.nano.MetricsProto;
 public class System extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String DEVICE_CATEGORY = "device_extras_category";
     private static final String EXPANDED_DESKTOP_CATEGORY = "expanded_desktop_category";
     private static final String LOCKSCREEN_ITEMS_CATEGORY = "lockscreen_items_category";
     private static final String MISC_CATEGORY = "miscellaneous_category";
@@ -40,11 +39,6 @@ public class System extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.system);
-
-        Preference DeviceExtras = findPreference(DEVICE_CATEGORY);
-        if (!getResources().getBoolean(R.bool.has_device_extras)) {
-            getPreferenceScreen().removePreference(DeviceExtras);
-        }
 
         Preference ExpandedDesktop = findPreference(EXPANDED_DESKTOP_CATEGORY);
         if (!getResources().getBoolean(R.bool.has_expanded_desktop)) {

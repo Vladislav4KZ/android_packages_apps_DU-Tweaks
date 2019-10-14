@@ -22,18 +22,16 @@ import android.content.om.IOverlayManager;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.os.ServiceManager;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.res.TypedArrayUtils;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceViewHolder;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.res.TypedArrayUtils;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
-
-import com.android.internal.statusbar.ThemeAccentUtils;
 
 public class CategoryPreference extends Preference {
 
@@ -79,33 +77,4 @@ public class CategoryPreference extends Preference {
         holder.setDividerAllowedBelow(mAllowDividerBelow);
 
         ImageView imageview = (ImageView) holder.findViewById(android.R.id.icon);
-
-        // Tint these icons for select few accents that are too bright
-        if (ThemeAccentUtils.isUsingAccent(mOverlayManager, mCurrentUserId, 13 )) {
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_light_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        } else if (ThemeAccentUtils.isUsingAccent(mOverlayManager, mCurrentUserId, 14)) {
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_light_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        } else if (ThemeAccentUtils.isUsingAccent(mOverlayManager, mCurrentUserId, 18)) {
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_light_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        } else if (ThemeAccentUtils.isUsingAccent(mOverlayManager, mCurrentUserId, 21)) {
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_light_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        } else if (ThemeAccentUtils.isUsingAccent(mOverlayManager, mCurrentUserId, 25)) {
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_light_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        } else if (ThemeAccentUtils.isUsingAccent(mOverlayManager, mCurrentUserId, 26)) {
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_light_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        } else if (ThemeAccentUtils.isUsingAccent(mOverlayManager, mCurrentUserId, 28)) {
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_light_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        } else {
-            // Icons remain the stock color for other accents
-            imageview.getDrawable().setColorFilter(getContext().getResources().getColor(
-                    R.color.dirty_tweaks_dark_category_icon_tint), PorterDuff.Mode.SRC_IN);
-        }
-    }
 }
