@@ -64,5 +64,4 @@
         android:title="@string/traffic_title"
         android:summary="@string/traffic_summary"
         android:fragment="com.dirtyunicorns.tweaks.fragments.TrafficIndicators" />
-
 </PreferenceScreen>
