@@ -31,6 +31,8 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -41,10 +43,19 @@ import java.util.List;
 public class NavigationOptions extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_BUTTON_SWAP_KEYS = "swap_navigation_keys";
+
+    private SystemSettingSwitchPreference mSwapKeysPreference;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.navigation_options);
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+
+	    mSwapKeysPreference = (SystemSettingSwitchPreference) prefScreen.findPreference(
+                    KEY_BUTTON_SWAP_KEYS);
     }
 
     @Override
