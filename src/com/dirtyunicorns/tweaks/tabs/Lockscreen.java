@@ -33,6 +33,7 @@ public class Lockscreen extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String FINGERPRINT_PREFS_CATEGORY = "fingerprint_prefs_category";
+    private static final String LOCKSCREEN_ITEMS_CATEGORY = "lockscreen_items_category";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,11 @@ public class Lockscreen extends SettingsPreferenceFragment
             if (!Utils.hasFingerprintSupport(getContext())) {
                 getPreferenceScreen().removePreference(FingerprintPrefs);
             }
+        }
+
+        Preference LockscreenItems = findPreference(LOCKSCREEN_ITEMS_CATEGORY);
+        if (!getResources().getBoolean(R.bool.has_lockscreen_items)) {
+            getPreferenceScreen().removePreference(LockscreenItems);
         }
     }
 

@@ -38,13 +38,13 @@ import com.android.settings.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpandedDesktop extends SettingsPreferenceFragment
+public class Interfaces extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.expanded_desktop);
+        addPreferencesFromResource(R.xml.interfaces);
     }
 
     @Override
