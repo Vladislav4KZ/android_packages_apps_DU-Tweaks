@@ -394,4 +394,8 @@
     <string name="status_bar_carrier_color">Carrier label color</string>
     <string name="status_bar_carrier_size">Carrier label size</string>
     <string name="status_bar_carrier_font_style_title">Carrier Label Font</string>
+
+    <!-- Custom Ambient Display Config -->
+    <string name="ambient_display_screen_title">Ambient Display</string>
+    <string name="ambient_display_screen_summary">Custom Ambient Display Configuration</string>
 </resources>
