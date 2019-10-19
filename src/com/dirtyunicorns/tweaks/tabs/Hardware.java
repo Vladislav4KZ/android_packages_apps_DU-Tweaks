@@ -27,7 +27,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
 
-public class Navigation extends SettingsPreferenceFragment
+public class Hardware extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String BUTTONS_CATEGORY = "buttons_category";
@@ -36,7 +36,7 @@ public class Navigation extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.navigation);
+        addPreferencesFromResource(R.xml.hardware);
 
         Preference Buttons = findPreference(BUTTONS_CATEGORY);
         if (!getResources().getBoolean(R.bool.has_buttons)) {

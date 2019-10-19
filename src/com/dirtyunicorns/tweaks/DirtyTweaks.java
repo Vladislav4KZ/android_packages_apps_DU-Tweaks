@@ -28,8 +28,6 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.DialogFragment;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 
@@ -37,11 +35,10 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.dirtyunicorns.tweaks.fragments.Team;
 import com.dirtyunicorns.tweaks.navigation.BottomNavigationViewCustom;
-//import com.dirtyunicorns.tweaks.tabs.Lockscreen;
-import com.dirtyunicorns.tweaks.tabs.Multitasking;
-import com.dirtyunicorns.tweaks.tabs.Navigation;
+import com.dirtyunicorns.tweaks.tabs.Lockscreen;
+//import com.dirtyunicorns.tweaks.tabs.Multitasking;
+import com.dirtyunicorns.tweaks.tabs.Hardware;
 import com.dirtyunicorns.tweaks.tabs.Statusbar;
 import com.dirtyunicorns.tweaks.tabs.System;
 
@@ -71,18 +68,18 @@ public class DirtyTweaks extends SettingsPreferenceFragment {
                     case R.id.system:
                         viewPager.setCurrentItem(0);
                         return true;
-                    /*case R.id.lockscreen:
-                        viewPager.setCurrentItem(1);
-                        return true;*/
                     case R.id.statusbar:
                         viewPager.setCurrentItem(1);
                         return true;
-                    case R.id.navigation:
+                    case R.id.lockscreen:
                         viewPager.setCurrentItem(2);
                         return true;
-                    case R.id.multitasking:
+                    case R.id.hardware:
                         viewPager.setCurrentItem(3);
                         return true;
+                    /*case R.id.multitasking:
+                        viewPager.setCurrentItem(3);
+                        return true;*/
                 }
                 return false;
             }
@@ -108,9 +105,6 @@ public class DirtyTweaks extends SettingsPreferenceFragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
-
-        setHasOptionsMenu(true);
-
         return view;
     }
 
@@ -122,10 +116,10 @@ public class DirtyTweaks extends SettingsPreferenceFragment {
         PagerAdapter(FragmentManager fm) {
             super(fm);
             frags[0] = new System();
-            //frags[1] = new Lockscreen();
             frags[1] = new Statusbar();
-            frags[2] = new Navigation();
-            frags[3] = new Multitasking();
+            frags[2] = new Lockscreen();
+            frags[3] = new Hardware();
+            //frags[3] = new Multitasking();
         }
 
         @Override
@@ -148,10 +142,10 @@ public class DirtyTweaks extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                 getString(R.string.bottom_nav_system_title),
-                //getString(R.string.bottom_nav_lockscreen_title),
                 getString(R.string.bottom_nav_statusbar_title),
-                getString(R.string.bottom_nav_navigation_title),
-                getString(R.string.bottom_nav_multitasking_title)};
+                getString(R.string.bottom_nav_lockscreen_title),
+                getString(R.string.bottom_nav_hardware_title),
+                //getString(R.string.bottom_nav_multitasking_title)};
 
         return titleString;
     }
@@ -159,32 +153,5 @@ public class DirtyTweaks extends SettingsPreferenceFragment {
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.DIRTYTWEAKS;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0, 0, 0, R.string.dialog_team_title);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case 0:
-                final Team dialog = new Team();
-                showDialog(this, dialog);
-                return true;
-            default:
-                return false;
-        }
-    }
-
-    private static void showDialog(Fragment context, DialogFragment dialog) {
-        FragmentTransaction ft = context.getChildFragmentManager().beginTransaction();
-        Fragment prev = context.getChildFragmentManager().findFragmentByTag("dialog");
-        if (prev != null) {
-            ft.remove(prev);
-        }
-        ft.addToBackStack(null);
-        dialog.show(ft, "dialog");
     }
 }

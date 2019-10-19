@@ -18,7 +18,6 @@ package com.dirtyunicorns.tweaks.preferences;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.content.om.IOverlayManager;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.os.ServiceManager;
@@ -40,15 +39,8 @@ public class CategoryPreference extends Preference {
     private boolean mAllowDividerAbove;
     private boolean mAllowDividerBelow;
 
-    private IOverlayManager mOverlayManager;
-    private int mCurrentUserId;
-
     public CategoryPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        mOverlayManager = IOverlayManager.Stub.asInterface(
-                ServiceManager.getService(Context.OVERLAY_SERVICE));
-        mCurrentUserId = ActivityManager.getCurrentUser();
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Preference);
 
@@ -75,7 +67,5 @@ public class CategoryPreference extends Preference {
         holder.itemView.setClickable(selectable);
         holder.setDividerAllowedAbove(mAllowDividerAbove);
         holder.setDividerAllowedBelow(mAllowDividerBelow);
-
-        ImageView imageview = (ImageView) holder.findViewById(android.R.id.icon);
     }
 }
