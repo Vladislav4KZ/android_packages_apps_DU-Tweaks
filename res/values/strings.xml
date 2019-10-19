@@ -80,6 +80,10 @@
     <!-- Sub categories -->
     <string name="sub_cat_advanced">Advanced</string>
 
+    <!-- Stock navbar -->
+    <string name="systemui_tuner_navbar_title">Layout</string>
+    <string name="systemui_tuner_navbar_enabled_summary">Customize the layout of the navigation bar</string>
+
     <!-- QS layout -->
     <string name="qs_layout_title">Layout</string>
     <string name="qs_rows_portrait_title">Rows (portrait)</string>
