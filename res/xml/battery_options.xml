@@ -18,6 +18,13 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/battery_options_title" >
 
+        <com.dirtyunicorns.support.preferences.SystemSettingMasterSwitchPreference
+            android:key="battery_light_enabled"
+            android:fragment="com.dirtyunicorns.tweaks.fragments.BatteryLightSettings"
+            android:title="@string/battery_light_settings"
+            android:summary="@string/battery_light_settings_summary"
+            android:defaultValue="true" />
+
         <com.dirtyunicorns.support.preferences.SystemSettingListPreference
             android:key="qs_battery_mode"
             android:title="@string/qs_battery_percentage_title"

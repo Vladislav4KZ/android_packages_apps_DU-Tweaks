@@ -18,6 +18,7 @@ package com.dirtyunicorns.tweaks.fragments;
 
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -43,21 +44,27 @@ import com.dirtyunicorns.support.preferences.GlobalSettingMasterSwitchPreference
 public class Notifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
+    private static final String LIGHTS_CATEGORY = "notification_lights";
     private static final String HEADS_UP_NOTIFICATIONS_ENABLED = "heads_up_notifications_enabled";
 
     private GlobalSettingMasterSwitchPreference mHeadsUpEnabled;
+    private PreferenceCategory mLightsCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notifications);
-        final ContentResolver resolver = getActivity().getContentResolver();
 
         mHeadsUpEnabled = (GlobalSettingMasterSwitchPreference) findPreference(HEADS_UP_NOTIFICATIONS_ENABLED);
         mHeadsUpEnabled.setOnPreferenceChangeListener(this);
         int headsUpEnabled = Settings.Global.getInt(getContentResolver(),
                 HEADS_UP_NOTIFICATIONS_ENABLED, 1);
         mHeadsUpEnabled.setChecked(headsUpEnabled != 0);
+
+        mLightsCategory = (PreferenceCategory) findPreference(LIGHTS_CATEGORY);
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_hasNotificationLed)) {
+            getPreferenceScreen().removePreference(mLightsCategory);
+        }
     }
 
     @Override
